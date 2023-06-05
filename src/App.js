@@ -1,27 +1,29 @@
-import {useState} from 'react';
 import "./App.css";
+import React,{useState} from "react";
 
 function App() {
-  const [Count, setCount]=useState(0);
-  function decrementHandler(){
-    setCount(Count-1);
+  const[count,setCount]=useState(0);
+  function decreaseHandler(){
+    setCount(count-1);
   }
-  function incrementHandler(){
-    setCount(Count+1);
+  function increaseHandler(){
+    setCount(count+1);
   }
   function resetHandler(){
     setCount(0);
   }
   return (
-   <section className="h-[100vh] w-[100vw] flex flex-col items-center justify-center gap-10 bg-[#344151]">
-      <div className="text-[#0398d4] font-medium text-2xl">Increment & Decrement</div>
-      <div className="flex justify-center gap-12 py-3 text-[25px] rounded-sm bg-white">
-        <button onClick={decrementHandler} className="w-20 border-r-2 text-5xl border-[#bfbfbf] ">-</button>
-        <div className='font-cold text-5xl gap-12 w-20 text-center'>{Count}</div>
-        <button onClick={incrementHandler}  className="w-20 border-l-2 text-5xl border-[#bfbfbf] ">+</button>
+   <div className="flex flex-col items-center justify-center w-[100vw] h-[100vh] bg-black gap-10">
+      <h1 className="text-5xl text-[#0398d4] font-medium mb-12 font-serif">REACT APP</h1>
+      <h1 className="text-3xl text-[#0398d4] font-medium font-mono">Increment & Decrement</h1>
+      <div className="flex bg-white gap-12 justify-center items-center py-3  rounded-sm 
+      text-[#344151]">
+        <button onClick={decreaseHandler} className="text-center border-r-2 w-20 text-5xl border-[#bfbfbf]">-</button>
+        <div className="font-medium text-5xl w-20 text-center gap-12">{count}</div>
+        <button onClick={increaseHandler} className="text-center border-l-2 w-20 text-5xl border-[#bfbfbf]">+</button>
       </div>
-      <button onClick={resetHandler} className="text-lg px-5 py-2 bg-[#0398d4] text-white rounded-sm">Reset</button>
-   </section>
+      <button onClick={resetHandler} className="rounded-md bg-[#0398d4] text-xl font-medium text-white px-5 py-3">Reset</button>
+   </div>
   );
 }
 
